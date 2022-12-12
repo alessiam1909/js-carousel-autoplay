@@ -1,0 +1,5 @@
+Creazione autoplay:
+
+1 - creo una funzione set interval che ogni 3 secondi mostri l'immagine successiva del carosello
+2 - individuo gli elementi da inserire nella funzione
+3 - implemento i pulsanti che funzionino assieme al carosello
