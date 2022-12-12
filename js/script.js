@@ -40,62 +40,93 @@ circles[itemActive].classList.add('active');
 const prev = document.querySelector('.prev');
 const next = document.querySelector('.next');
 
-next.addEventListener('click', function(){
-    //verifico l'elemento attivo (itemActive)
-     if(itemActive < items.length - 1){
-          items[itemActive].classList.remove('active');
-          circles[itemActive].classList.remove('active');
-  
-          //incremento il suo valore di 1
-          itemActive++;
-  
-          //aggiungere la class active al nuovo elemento dell'array items e la vado a rimuovere da quello precedente
-          //stessa cosa per i cerchi
-          items[itemActive].classList.add('active');
-          circles[itemActive].classList.add('active');
-          console.log(itemActive);
+setInterval(caroselloAutoplay, 3000);
 
-          
-     }else{
+function caroselloAutoplay(){
+    if(itemActive < items.length - 1){
         items[itemActive].classList.remove('active');
         circles[itemActive].classList.remove('active');
 
-        itemActive = 0;
+        //incremento il suo valore di 1
+        itemActive++;
 
+        //aggiungere la class active al nuovo elemento dell'array items e la vado a rimuovere da quello precedente
+        //stessa cosa per i cerchi
         items[itemActive].classList.add('active');
         circles[itemActive].classList.add('active');
-     };
+        console.log(itemActive);
+
+        
+  }else{
+      items[itemActive].classList.remove('active');
+      circles[itemActive].classList.remove('active');
+
+      itemActive = 0;
+
+      items[itemActive].classList.add('active');
+      circles[itemActive].classList.add('active');
+  };
+}
 
 
-});
-
-prev.addEventListener('click', function(){
-   
-    if(itemActive > 0){
+next.addEventListener('click', function(){ 
         //verifico l'elemento attivo (itemActive)
+        if(itemActive < items.length - 1){
+              items[itemActive].classList.remove('active');
+              circles[itemActive].classList.remove('active');
+      
+              //incremento il suo valore di 1
+              itemActive++;
+      
+              //aggiungere la class active al nuovo elemento dell'array items e la vado a rimuovere da quello precedente
+              //stessa cosa per i cerchi
+              items[itemActive].classList.add('active');
+              circles[itemActive].classList.add('active');
+              console.log(itemActive);
+    
+              
+        }else{
             items[itemActive].classList.remove('active');
             circles[itemActive].classList.remove('active');
     
-            //decremento il suo valore di 1
-            itemActive--;
+            itemActive = 0;
     
             items[itemActive].classList.add('active');
-            
-             //aggiungere la class active al nuovo elemento dell'array items e la vado a rimuovere da quello precedente
-             //stessa cosa per i cerchi
             circles[itemActive].classList.add('active');
-            console.log(itemActive);
-
-            
-    } else{
-        items[itemActive].classList.remove('active');
-        circles[itemActive].classList.remove('active');
-
-        itemActive = items.length -1;
-
-        items[itemActive].classList.add('active');
-        circles[itemActive].classList.add('active');
-    }
+        };
+    
+    
+    
 });
+    
+prev.addEventListener('click', function(){
+       
+    if(itemActive > 0){
+            //verifico l'elemento attivo (itemActive)
+                items[itemActive].classList.remove('active');
+                circles[itemActive].classList.remove('active');
+        
+                //decremento il suo valore di 1
+                itemActive--;
+        
+                items[itemActive].classList.add('active');
+                
+                 //aggiungere la class active al nuovo elemento dell'array items e la vado a rimuovere da quello precedente
+                 //stessa cosa per i cerchi
+                circles[itemActive].classList.add('active');
+                console.log(itemActive);
+    
+                
+    } else{
+            items[itemActive].classList.remove('active');
+            circles[itemActive].classList.remove('active');
+    
+            itemActive = items.length -1;
+    
+            items[itemActive].classList.add('active');
+            circles[itemActive].classList.add('active');
+        }
+});
+
 
 
